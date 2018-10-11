@@ -5,3 +5,8 @@ from .models import Post
 def listar(request):
     posts = Post.objects.all()
     return render(request, 'blog/listar.html', {'posts':posts})
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post':post})
